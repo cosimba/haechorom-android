@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".auth.JoinActivity">
+
+        <!-- 상단 파란색 LinearLayout -->
+        <LinearLayout
+            android:id="@+id/topLayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/TuftsBlue"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"> <!-- 중앙 정렬을 위한 gravity 설정 -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="회원가입"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- 파란색 밑에 위치할 LinearLayout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/topLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:padding="16dp">
+
+            <!-- 이름 필드 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이름"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginBottom="7dp"/>
+
+            <EditText
+                android:id="@+id/nameArea"
+                android:hint="  이름"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_edittext_background"/>
+
+            <!-- 전화번호 필드 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전화번호"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="7dp"/>
+
+            <EditText
+                android:id="@+id/numArea"
+                android:hint="  전화번호"
+                android:inputType="phone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_edittext_background"/>
+
+            <!-- 이메일 필드 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이메일"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="7dp"/>
+
+            <EditText
+                android:id="@+id/emailArea"
+                android:hint="  이메일"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_edittext_background"/>
+
+            <!-- 아이디 필드 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="아이디"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="7dp"/>
+
+            <EditText
+                android:id="@+id/idArea"
+                android:hint="  아이디"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_edittext_background"/>
+
+            <!-- 비밀번호 필드 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="비밀번호"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="7dp"/>
+
+            <EditText
+                android:id="@+id/passwordArea"
+                android:hint="  비밀번호"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_edittext_background"/>
+
+            <!-- 비밀번호 확인 필드 -->
+            <EditText
+                android:id="@+id/passwordCheckArea"
+                android:hint="  비밀번호 확인"
+                android:inputType="text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_edittext_background"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#999999" />
+
+            <Spinner
+                android:id="@+id/modeSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:entries="@array/modes_array"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="#999999" />
+
+            <Button
+                android:id="@+id/joinBtn"
+                android:text="회원가입 하기"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/background_radius_yellow"
+                android:layout_marginTop="50dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
