@@ -13,11 +13,6 @@ class Mode1Activity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        // Kakao SDK 초기화
-//        KakaoSdk.init(this, "{54fc29e3b7f909c70d60a15c5ad4897c}")
-//
-//        KakaoMapSdk.init(this, "54fc29e3b7f909c70d60a15c5ad4897c");
-
         enableEdgeToEdge()
         setContentView(R.layout.activity_mode1)
 
