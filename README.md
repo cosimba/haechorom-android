@@ -12,4 +12,4 @@
 ## Commit
 (start with Bottom Navigation Views Activity)
 1) first commit
-2) 
+2) HaeChorom Start!
