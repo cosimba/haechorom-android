@@ -4,12 +4,6 @@
     <solid android:color="@color/TuftsBlue">
 
     </solid>
-    <corners
-        android:bottomLeftRadius="30dp"
-        android:bottomRightRadius="30dp"
-        android:topLeftRadius="30dp"
-        android:topRightRadius="30dp">
-
-    </corners>
+    <corners android:radius="12dp" />
 
 </shape>

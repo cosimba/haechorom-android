@@ -43,7 +43,7 @@
             android:exported="false" />
         <activity
             android:name=".mode1.Mode1Activity"
-            android:exported="false" /> <!-- MainActivity는 Splash 이후로 들어가게 설정 -->
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />

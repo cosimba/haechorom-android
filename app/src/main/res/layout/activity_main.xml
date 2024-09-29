@@ -1,45 +1,70 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:gravity="center">
-
-    <EditText
-        android:id="@+id/editTextId"
-        android:hint="아이디"
-        android:inputType="text"
+<layout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="15dp"
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext_background"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center">
 
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:hint="비밀번호"
-        android:inputType="textPassword"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="15dp"
-        android:padding="12dp"
-        android:background="@drawable/rounded_edittext_background"/>
+        <EditText
+            android:id="@+id/editTextId"
+            android:hint="아이디"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:padding="12dp"
+            android:background="@drawable/rounded_edittext_background"/>
 
-    <Spinner
-        android:id="@+id/modeSpinner"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="15dp"
-        android:entries="@array/modes_array" />
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:hint="비밀번호"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:padding="12dp"
+            android:background="@drawable/rounded_edittext_background"/>
 
-    <Button
-        android:id="@+id/buttonLogin"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_radius_yellow"
-        android:layout_margin="15dp"
-        android:text="로그인" />
-</LinearLayout>
+        <Spinner
+            android:id="@+id/modeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:entries="@array/modes_array" />
+
+        <Button
+            android:id="@+id/buttonLogin"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_radius_yellow"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:text="로그인" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:text="해초롬 회원이 아니신가요?  |  회원가입"
+            android:textColor="@color/text_color_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="5dp"/>
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/TuftsBlue" android:state_pressed="true"/> <!-- 클릭되었을 때 빨간색 -->
+    <item android:color="#888888"/> <!-- 기본 상태에서는 회색 -->
+</selector>

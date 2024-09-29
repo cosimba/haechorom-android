@@ -2,6 +2,7 @@
     <string name="app_name">HaeChorom</string>
 
     <string-array name="modes_array">
+        <item>모드를 선택해 주세요.</item>
         <item>조사 모드</item>
         <item>청소 모드</item>
         <item>관리자 모드</item>
