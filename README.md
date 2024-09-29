@@ -10,7 +10,7 @@
 ---
 
 ## Commit
-(start with Bottom Navigation Views Activity)
+(start with Empty Activity)
 1) first commit
 2) haechrom start!
 3) mode1activity (인트로, 로그인, 회원가입 화면, 기능 수정)
