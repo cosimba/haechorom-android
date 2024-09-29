@@ -1,4 +1,4 @@
-# HaeChorom Android Systems
+# 해초롬 Android Systems
 
 ## Development Environment
 - **Language** :  Kotlin
