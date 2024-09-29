@@ -14,4 +14,4 @@
 1) first commit
 2) haechrom start!
 3) mode1activity (인트로, 로그인, 회원가입 화면, 기능 수정)
-4) 
+4) feat) modify screen configuration and design
