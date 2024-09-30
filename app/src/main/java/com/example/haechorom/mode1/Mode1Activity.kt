@@ -57,4 +57,10 @@ class Mode1Activity : AppCompatActivity() {
         super.onPause()
         mapView.pause()  // MapView의 pause 호출
     }
+
+    // 뒤로가기를 눌렀을 때 앱 종료
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity() // 모든 액티비티 종료 (앱 종료)
+    }
 }
