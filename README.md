@@ -12,7 +12,7 @@
 ## Commit
 (start with Empty Activity)
 1) first commit
-2) haechrom start!
+2) HaeChorom Start!
 3) mode1activity (인트로, 로그인, 회원가입 화면, 기능 수정)
 4) feat) modify screen configuration and design
 5) feat) splash activity
