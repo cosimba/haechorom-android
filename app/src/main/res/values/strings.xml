@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HaeChorom</string>
+    <string name="app_name">해초롬</string>
 
     <string-array name="modes_array">
         <item>모드를 선택해 주세요.</item>

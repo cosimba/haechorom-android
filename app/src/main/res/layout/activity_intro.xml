@@ -27,7 +27,7 @@
                 android:textStyle="bold"
                 android:layout_height="55dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/background_radius_yellow"
+                android:background="@drawable/background_radius_blue"
                 android:text="로그인" />
 
             <Button
@@ -37,7 +37,7 @@
                 android:textStyle="bold"
                 android:layout_height="55dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/background_radius_yellow"
+                android:background="@drawable/background_radius_blue"
                 android:text="회원가입" />
 
         </LinearLayout>
