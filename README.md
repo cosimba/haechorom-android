@@ -18,3 +18,4 @@
 5) feat) splash activity
 6) kakao map authentication
 7) gitignore
+8) modifying the design
