@@ -10,4 +10,4 @@
 
 ---
 
-## Kakao Map API
+## Kakao Map API Authentication
