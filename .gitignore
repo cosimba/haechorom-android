@@ -13,4 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-/app/src/main/java/com/example/haechorom/MyApplication.kt
+/app/src/main/res/values/api_key.xml
