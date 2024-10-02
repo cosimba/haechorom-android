@@ -7,6 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.haechorom.R
 
+// 관리자 모드
+// 화면 구성 및 서버 연결 고민
+
 class Mode3Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
