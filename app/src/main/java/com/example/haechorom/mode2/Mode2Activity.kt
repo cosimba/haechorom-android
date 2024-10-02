@@ -1,12 +1,11 @@
 package com.example.haechorom.mode2
 
-import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.haechorom.R
-import com.example.haechorom.databinding.ActivityMode1Binding
+import com.example.haechorom.databinding.ActivityMode2Binding
 import com.kakao.vectormap.KakaoMap
 import com.kakao.vectormap.KakaoMapReadyCallback
 import com.kakao.vectormap.LatLng
@@ -20,9 +19,8 @@ class Mode2Activity : AppCompatActivity() {
 
     private lateinit var mapView: MapView
     private var kakaoMap: KakaoMap? = null
-    private lateinit var binding: ActivityMode1Binding
+    private lateinit var binding: ActivityMode2Binding
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mode2)
@@ -31,7 +29,7 @@ class Mode2Activity : AppCompatActivity() {
         mapView = findViewById(R.id.map_view)
 
         // ViewBinding 초기화
-        binding = ActivityMode1Binding.inflate(layoutInflater)
+        binding = ActivityMode2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.mapView.start(object : KakaoMapReadyCallback() {

@@ -41,7 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".mode2.Mode2Activity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".mode1.Mode1Activity"
             android:exported="false" />
