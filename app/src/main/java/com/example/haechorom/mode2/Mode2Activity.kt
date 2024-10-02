@@ -7,7 +7,6 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.haechorom.R
 import com.example.haechorom.databinding.ActivityMode2Binding
-import com.example.haechorom.mode1.Invest1Activity
 import com.kakao.vectormap.KakaoMap
 import com.kakao.vectormap.KakaoMapReadyCallback
 import com.kakao.vectormap.LatLng
