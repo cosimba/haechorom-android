@@ -7,6 +7,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.haechorom.R
 
+// 운송 모드
+// 현재 내 위치와 지정 위치 사이의 경로르 표시해 주는 모드 (추가로 쓰레기 소각장 위치)
+
 class Mode4Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 

@@ -9,4 +9,13 @@
         <item>운송 모드</item>
     </string-array>
 
+    <string-array name="trash_array">
+        <item>종류를 선택해 주세요.</item>
+        <item>부표류(스티로폼, 플라스틱 부표 등)</item>
+        <item>폐어구류(그물, 밧줄, 양식자재 등)</item>
+        <item>생활쓰레기류(음료수병, 포장비닐 등)</item>
+        <item>대형쓰레기류(냉장고, 타이어, 말통 등)</item>
+        <item>초목류(자연목, 인공목 등)</item>
+    </string-array>
+
 </resources>

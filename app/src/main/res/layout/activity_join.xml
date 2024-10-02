@@ -15,7 +15,6 @@
             android:orientation="vertical"
             tools:context=".auth.JoinActivity">
 
-            <!-- 상단 파란색 LinearLayout -->
             <LinearLayout
                 android:id="@+id/topLayout"
                 android:layout_width="match_parent"
@@ -24,7 +23,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:gravity="center"> <!-- 중앙 정렬을 위한 gravity 설정 -->
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -36,7 +35,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
 
-            <!-- 파란색 밑에 위치할 LinearLayout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -1,6 +1,7 @@
 package com.example.haechorom.mode1
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -33,6 +34,13 @@ class Mode1Activity : AppCompatActivity() {
         binding = ActivityMode1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // 버튼 클릭 시 Invest1Activity로 이동
+        binding.button.setOnClickListener {
+            val intent = Intent(this@Mode1Activity, Invest1Activity::class.java)
+            startActivity(intent)
+        }
+
+        // KakaoMapReadyCallback 설정
         binding.mapView.start(object : KakaoMapReadyCallback() {
             val marketLatitude = 35.1796
             val marketLongitude = 129.0756

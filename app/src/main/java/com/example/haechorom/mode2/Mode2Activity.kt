@@ -1,11 +1,13 @@
 package com.example.haechorom.mode2
 
 import android.content.ContentValues.TAG
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.haechorom.R
 import com.example.haechorom.databinding.ActivityMode2Binding
+import com.example.haechorom.mode1.Invest1Activity
 import com.kakao.vectormap.KakaoMap
 import com.kakao.vectormap.KakaoMapReadyCallback
 import com.kakao.vectormap.LatLng
@@ -31,6 +33,12 @@ class Mode2Activity : AppCompatActivity() {
         // ViewBinding 초기화
         binding = ActivityMode2Binding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // 버튼 클릭 시 Invest1Activity로 이동
+        binding.button.setOnClickListener {
+            val intent = Intent(this@Mode2Activity, Clean2Activity::class.java)
+            startActivity(intent)
+        }
 
         binding.mapView.start(object : KakaoMapReadyCallback() {
             val marketLatitude = 35.1796

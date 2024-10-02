@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            tools:context=".mode1.Invest1Activity">
+            tools:context=".mode2.Clean2Activity">
 
             <LinearLayout
                 android:id="@+id/topLayout"
@@ -29,7 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="조사 내용 기록"
+                    android:text="청소 내용 기록"
                     android:textSize="20sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
@@ -108,7 +108,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="7dp"
                     android:padding="5dp"
-                    android:text="오염정도 평가"
+                    android:text="청소 수거량"
                     android:textStyle="bold"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
@@ -155,7 +155,7 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="50dp"
                     android:background="@drawable/background_radius_blue"
-                    android:text="조사 완료 하기"
+                    android:text="청소 완료 하기"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
 
