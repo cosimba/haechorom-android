@@ -1,6 +1,7 @@
 package com.example.haechorom.mode1
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -21,16 +22,32 @@ import com.kakao.vectormap.camera.CameraPosition
 import com.kakao.vectormap.camera.CameraUpdateFactory
 import android.location.LocationManager
 import android.content.Context
+import android.widget.TextView
+import com.kakao.vectormap.label.Label
+import com.kakao.vectormap.label.LabelOptions
+import com.kakao.vectormap.label.LabelStyle
+import com.kakao.vectormap.label.LabelStyles
 
 class Mode1Activity : AppCompatActivity() {
 
     private lateinit var mapView: MapView
     private var kakaoMap: KakaoMap? = null
     private lateinit var binding: ActivityMode1Binding
+    private var locationLabel: Label? = null  // 내 위치를 나타내는 라벨
+
+    // 위도와 경도를 표시할 TextView 추가
+    private lateinit var latLngTextView: TextView
+
+    // 클릭한 위치의 위도와 경도
+    private var clickedLatitude: Double = 0.0
+    private var clickedLongitude: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mode1)
+
+        // TextView 초기화
+        latLngTextView = findViewById(R.id.lat_lng_text)
 
         // MapView 초기화
         mapView = findViewById(R.id.map_view)
@@ -42,6 +59,8 @@ class Mode1Activity : AppCompatActivity() {
         // 버튼 클릭 시 Invest1Activity로 이동
         binding.button.setOnClickListener {
             val intent = Intent(this@Mode1Activity, Invest1Activity::class.java)
+            intent.putExtra("latitude", clickedLatitude)
+            intent.putExtra("longitude", clickedLongitude)
             startActivity(intent)
         }
 
@@ -60,15 +79,6 @@ class Mode1Activity : AppCompatActivity() {
                 // 줌 레벨을 조정해 초기 줌이 너무 크지 않도록 설정
                 val cameraUpdate = CameraUpdateFactory.zoomTo(16) // 적절한 줌 레벨로 설정
                 kakaoMap.moveCamera(cameraUpdate)
-
-                // 카메라 이동 애니메이션
-                //kakaoMap.moveCamera(CameraUpdateFactory.tiltTo(Math.toRadians(30.0)), CameraAnimation.from(500, true, true))
-                //kakaoMap.moveCamera(CameraUpdateFactory.rotateTo(Math.toRadians(45.0)), CameraAnimation.from(500, true, true))
-
-                // 카메라 이동 완료 후 처리
-                kakaoMap.setOnCameraMoveEndListener { _, cameraPosition, _ ->
-                    Log.d(TAG, "Camera Position after move: $cameraPosition")
-                }
             }
         })
     }
@@ -109,6 +119,13 @@ class Mode1Activity : AppCompatActivity() {
                     0.0 // 높이
                 )
                 kakaoMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+
+                // 내 위치에 라벨을 추가
+                addLabelToLocation(kakaoMap, myLocation)
+
+                // 위도와 경도를 TextView에 출력
+                updateLatLngTextView(myLocation)
+
             } else {
                 // 위치가 null일 경우 지속적으로 위치 업데이트 요청
                 locationManager.requestLocationUpdates(
@@ -126,9 +143,44 @@ class Mode1Activity : AppCompatActivity() {
                         0.0 // 높이
                     )
                     kakaoMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+
+                    // 내 위치에 라벨을 추가
+                    addLabelToLocation(kakaoMap, myLocation)
+
+                    // 위도와 경도를 TextView에 출력
+                    updateLatLngTextView(myLocation)
                 }
             }
         }
+    }
+
+    // 위도 경도를 TextView에 업데이트하는 함수
+    @SuppressLint("SetTextI18n")
+    private fun updateLatLngTextView(location: LatLng) {
+        Log.d("LatLngUpdate", "TextView에 출력 - 위도: ${location.latitude}, 경도: ${location.longitude}")
+        latLngTextView.text = "위도: ${location.latitude}, 경도: ${location.longitude}"
+    }
+
+    // 라벨을 내 위치에 추가하는 함수
+    private fun addLabelToLocation(kakaoMap: KakaoMap, location: LatLng) {
+        // 기존에 라벨이 있으면 제거
+        locationLabel?.remove()
+
+        // LabelStyles 설정 - 단순한 아이콘 스타일을 적용
+        val styles = LabelStyles.from(LabelStyle.from(R.drawable.my_location_icon))  // my_location_icon: 위치 아이콘 리소스
+
+        // 새로운 라벨 생성
+        val labelOptions = LabelOptions.from(location)
+            .setStyles(styles)  // 라벨 스타일 설정
+
+        // LabelLayer에서 레이어 가져오기
+        val labelLayer = kakaoMap.getLabelManager()?.getLayer()
+
+        // 라벨 추가
+        val label = labelLayer?.addLabel(labelOptions)
+
+        // 새 라벨을 저장
+        locationLabel = label
     }
 
     override fun onResume() {

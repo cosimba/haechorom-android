@@ -124,6 +124,9 @@ class Invest1Activity : AppCompatActivity() {
         intent.putExtra("latitude", latitude)
         intent.putExtra("longitude", longitude)
         intent.putExtra("coastName", name)
+        intent.putExtra("coastLength", length)
+        intent.putExtra("prediction", prediction)
+        intent.putExtra("trashType", trashType)
         startActivity(intent)
 
         Toast.makeText(this, "조사 완료", Toast.LENGTH_SHORT).show()
