@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -45,25 +46,85 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/topLayout">
 
+                    <!-- 위도 필드 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:padding="5dp"
+                            android:text="위도"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/latitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:padding="12dp"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:background="@drawable/rounded_edittext_background"
+                            android:gravity="center_vertical" />
+                    </LinearLayout>
+
+                    <!-- 경도 필드 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:padding="5dp"
+                            android:text="경도"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/longitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:padding="12dp"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            android:background="@drawable/rounded_edittext_background"
+                            android:gravity="center_vertical" />
+                    </LinearLayout>
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
                     android:gravity="center_vertical">
 
                     <!-- 해안명 필드 -->
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginRight="10dp"
                         android:padding="5dp"
                         android:text="해안명"
-                        android:textStyle="bold"
                         android:textColor="@color/black"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <EditText
-                        android:id="@+id/nameArea"
+                        android:id="@+id/coastName"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_weight="1"
@@ -76,6 +137,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
 
@@ -83,7 +145,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginRight="10dp"
                         android:padding="5dp"
                         android:text="해안 길이"
                         android:textStyle="bold"
@@ -91,12 +153,40 @@
                         android:textSize="16sp" />
 
                     <EditText
-                        android:id="@+id/numArea"
+                        android:id="@+id/coastLength"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:background="@drawable/rounded_edittext_background"
-                        android:hint="해안 길이 (m 단위)"
-                        android:inputType="phone"
+                        android:hint="해안 길이 (m 단위, 숫자만 기입)"
+                        android:inputType="number"
+                        android:padding="12dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:padding="5dp"
+                        android:text="예측량(L)"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/predict"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/rounded_edittext_background"
+                        android:hint="예측량 (L 단위, 숫자만 기입))"
+                        android:inputType="number"
                         android:padding="12dp" />
 
                 </LinearLayout>
@@ -113,6 +203,51 @@
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_horizontal">
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_margin="10dp"
+                        tools:srcCompat="@tools:sample/avatars"
+                        android:id="@+id/avatars" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_horizontal">
+
+                        <Button
+                            android:text="갤러리"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/background_radius_blue"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:id="@+id/picture"
+                            android:layout_weight="1"/>
+
+                        <Button
+                            android:text="카메라"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/background_radius_blue"
+                            android:layout_margin="10dp"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:id="@+id/camera"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
 
                 <LinearLayout
@@ -150,10 +285,12 @@
                     android:background="#999999" />
 
                 <Button
-                    android:id="@+id/joinBtn"
+                    android:id="@+id/completionBtn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="50dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:background="@drawable/background_radius_blue"
                     android:text="조사 완료 하기"
                     android:textColor="@color/white"

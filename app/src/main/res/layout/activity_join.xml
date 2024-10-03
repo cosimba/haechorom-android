@@ -196,16 +196,10 @@
                     android:id="@+id/modeSpinner"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:background="@drawable/spinner_background"
                     android:entries="@array/modes_array"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:background="#999999" />
 
                 <Button
                     android:id="@+id/joinBtn"

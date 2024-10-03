@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/modeSpinner"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="16sp"
+    android:layout_height="50dp"
+    android:background="@drawable/spinner_background"
+    android:entries="@array/modes_array"
+    android:popupBackground="@android:color/white"
     android:padding="10dp"
-    android:textColor="#555555" />
+    android:textSize="16sp"
+    />
