@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".auth.IntroActivity">
+
+        <ImageView
+            android:layout_width="410dp"
+            android:layout_height="269dp"
+            android:src="@drawable/haechrom_intro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -23,22 +32,22 @@
             <Button
                 android:id="@+id/loginBtn"
                 android:layout_width="match_parent"
-                android:textColor="@color/white"
-                android:textStyle="bold"
                 android:layout_height="55dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/background_radius_blue"
-                android:text="로그인" />
+                android:text="로그인"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/joinBtn"
                 android:layout_width="match_parent"
-                android:textColor="@color/white"
-                android:textStyle="bold"
                 android:layout_height="55dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/background_radius_blue"
-                android:text="회원가입" />
+                android:text="회원가입"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
