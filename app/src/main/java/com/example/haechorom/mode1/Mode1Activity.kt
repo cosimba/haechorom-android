@@ -19,7 +19,6 @@ import com.kakao.vectormap.MapView
 import com.kakao.vectormap.LatLng
 import com.kakao.vectormap.camera.CameraPosition
 import com.kakao.vectormap.camera.CameraUpdateFactory
-import com.kakao.vectormap.camera.CameraAnimation
 import android.location.LocationManager
 import android.content.Context
 
@@ -59,12 +58,12 @@ class Mode1Activity : AppCompatActivity() {
                 moveToCurrentLocation(kakaoMap)
 
                 // 줌 레벨을 조정해 초기 줌이 너무 크지 않도록 설정
-                val cameraUpdate = CameraUpdateFactory.zoomTo(10) // 적절한 줌 레벨로 설정
+                val cameraUpdate = CameraUpdateFactory.zoomTo(16) // 적절한 줌 레벨로 설정
                 kakaoMap.moveCamera(cameraUpdate)
 
                 // 카메라 이동 애니메이션
-                kakaoMap.moveCamera(CameraUpdateFactory.tiltTo(Math.toRadians(30.0)), CameraAnimation.from(500, true, true))
-                kakaoMap.moveCamera(CameraUpdateFactory.rotateTo(Math.toRadians(45.0)), CameraAnimation.from(500, true, true))
+                //kakaoMap.moveCamera(CameraUpdateFactory.tiltTo(Math.toRadians(30.0)), CameraAnimation.from(500, true, true))
+                //kakaoMap.moveCamera(CameraUpdateFactory.rotateTo(Math.toRadians(45.0)), CameraAnimation.from(500, true, true))
 
                 // 카메라 이동 완료 후 처리
                 kakaoMap.setOnCameraMoveEndListener { _, cameraPosition, _ ->
@@ -78,6 +77,17 @@ class Mode1Activity : AppCompatActivity() {
     private fun checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1000)
+        } else {
+            // 권한이 이미 허용된 경우 즉시 위치를 요청
+            kakaoMap?.let { moveToCurrentLocation(it) }
+        }
+    }
+
+    // 권한 요청 결과 처리
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1000 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            kakaoMap?.let { moveToCurrentLocation(it) } // 권한 승인 시 내 위치로 이동
         }
     }
 
@@ -86,18 +96,37 @@ class Mode1Activity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
             val location: Location? = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                ?: locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
 
-            location?.let {
-                val myLocation = LatLng.from(it.latitude, it.longitude)
+            if (location != null) {
+                val myLocation = LatLng.from(location.latitude, location.longitude)
                 val cameraPosition = CameraPosition.from(
                     myLocation.latitude,
                     myLocation.longitude,
-                    10, // 적당한 줌 레벨
+                    16, // 적당한 줌 레벨
                     0.0, // 기울기 없음
                     0.0, // 회전 없음
                     0.0 // 높이
                 )
                 kakaoMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+            } else {
+                // 위치가 null일 경우 지속적으로 위치 업데이트 요청
+                locationManager.requestLocationUpdates(
+                    LocationManager.GPS_PROVIDER,
+                    0L,
+                    0f
+                ) { newLocation ->
+                    val myLocation = LatLng.from(newLocation.latitude, newLocation.longitude)
+                    val cameraPosition = CameraPosition.from(
+                        myLocation.latitude,
+                        myLocation.longitude,
+                        16, // 적당한 줌 레벨
+                        0.0, // 기울기 없음
+                        0.0, // 회전 없음
+                        0.0 // 높이
+                    )
+                    kakaoMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
+                }
             }
         }
     }
