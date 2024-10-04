@@ -71,6 +71,10 @@ class Invest1Activity : AppCompatActivity() {
         latitudeTextView.text = latitude.toString()
         longitudeTextView.text = longitude.toString()
 
+        // 카메라와 갤러리 이벤트 처리
+        cameraBtn.setOnClickListener { openCamera() }
+        galleryBtn.setOnClickListener { openGallery() }
+
         // 조사 완료 버튼 이벤트 처리
         completionBtn.setOnClickListener {
             submitData()

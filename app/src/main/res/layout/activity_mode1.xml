@@ -19,7 +19,7 @@
                 android:id="@+id/lat_lng_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="위도\n경도"
+                android:text="위도\n 경도"
                 android:layout_margin="16dp"
                 android:textAlignment="center"
                 android:gravity="center"

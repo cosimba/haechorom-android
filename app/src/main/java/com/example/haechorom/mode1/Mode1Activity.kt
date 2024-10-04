@@ -16,13 +16,11 @@ import com.example.haechorom.databinding.ActivityMode1Binding
 import com.kakao.vectormap.KakaoMap
 import com.kakao.vectormap.KakaoMapReadyCallback
 import com.kakao.vectormap.MapLifeCycleCallback
-import com.kakao.vectormap.MapView
 import com.kakao.vectormap.LatLng
 import com.kakao.vectormap.camera.CameraPosition
 import com.kakao.vectormap.camera.CameraUpdateFactory
 import android.location.LocationManager
 import android.content.Context
-import android.widget.TextView
 import com.kakao.vectormap.label.Label
 import com.kakao.vectormap.label.LabelOptions
 import com.kakao.vectormap.label.LabelStyle
@@ -68,7 +66,7 @@ class Mode1Activity : AppCompatActivity() {
                 moveToCurrentLocation(kakaoMap)
 
                 // 줌 레벨을 조정해 초기 줌이 너무 크지 않도록 설정
-                val cameraUpdate = CameraUpdateFactory.zoomTo(16) // 적절한 줌 레벨로 설정
+                val cameraUpdate = CameraUpdateFactory.zoomTo(15) // 적절한 줌 레벨로 설정
                 kakaoMap.moveCamera(cameraUpdate)
             }
         })
@@ -104,7 +102,7 @@ class Mode1Activity : AppCompatActivity() {
                 val cameraPosition = CameraPosition.from(
                     myLocation.latitude,
                     myLocation.longitude,
-                    16, // 적당한 줌 레벨
+                    15, // 적당한 줌 레벨
                     0.0, // 기울기 없음
                     0.0, // 회전 없음
                     0.0 // 높이
@@ -128,7 +126,7 @@ class Mode1Activity : AppCompatActivity() {
                     val cameraPosition = CameraPosition.from(
                         myLocation.latitude,
                         myLocation.longitude,
-                        16, // 적당한 줌 레벨
+                        15, // 적당한 줌 레벨
                         0.0, // 기울기 없음
                         0.0, // 회전 없음
                         0.0 // 높이
@@ -212,6 +210,12 @@ class Mode1Activity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         binding.mapView.finish() // 명시적으로 지도 종료
+    }
+
+    // 뒤로가기를 눌렀을 때 앱 종료
+    override fun onBackPressed() {
+        super.onBackPressed()
+        finishAffinity() // 모든 액티비티 종료 (앱 종료)
     }
 }
 
