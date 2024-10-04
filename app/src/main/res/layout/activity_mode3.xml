@@ -77,7 +77,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="25dp"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
                 android:orientation="vertical"
                 android:padding="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -87,7 +89,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:layout_marginBottom="7dp"
                     android:padding="5dp"
                     android:text="조회 기간 설정"
