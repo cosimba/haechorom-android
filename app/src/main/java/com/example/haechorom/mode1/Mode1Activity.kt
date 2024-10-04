@@ -46,13 +46,15 @@ class Mode1Activity : AppCompatActivity() {
         binding = ActivityMode1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 버튼 클릭 시 Invest1Activity로 이동
         binding.button.setOnClickListener {
+            Log.d("Mode1Activity", "보내는 위도: $clickedLatitude, 경도: $clickedLongitude")
+
             val intent = Intent(this@Mode1Activity, Invest1Activity::class.java)
             intent.putExtra("latitude", clickedLatitude)
             intent.putExtra("longitude", clickedLongitude)
             startActivity(intent)
         }
+
 
         // 위치 권한 요청
         checkLocationPermission()
@@ -148,8 +150,13 @@ class Mode1Activity : AppCompatActivity() {
         Log.d("LatLngUpdate", "TextView에 출력 - 위도: ${location.latitude}, 경도: ${location.longitude}")
         val formattedLatitude = String.format("%.4f", location.latitude)
         val formattedLongitude = String.format("%.4f", location.longitude)
+
         // 바인딩을 통해 TextView에 접근
         binding.latLngText.text = "위도: $formattedLatitude\n경도: $formattedLongitude"
+
+        // clickedLatitude와 clickedLongitude에 현재 위치 값 복사
+        clickedLatitude = location.latitude
+        clickedLongitude = location.longitude
     }
 
     // 라벨을 내 위치에 추가하는 함수

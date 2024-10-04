@@ -47,55 +47,55 @@
                 app:layout_constraintTop_toBottomOf="@id/topLayout">
 
                     <!-- 위도 필드 -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:padding="5dp"
-                            android:text="위도"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/latitude"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:padding="12dp"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:background="@drawable/rounded_edittext_background"
-                            android:gravity="center_vertical" />
-                    </LinearLayout>
-
-                    <!-- 경도 필드 -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginTop="10dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:padding="5dp"
-                            android:text="경도"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
 
-                        <TextView
-                            android:id="@+id/longitude"
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:padding="5dp"
+                                android:text="위도"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/latitude"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:padding="12dp"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                android:background="@drawable/rounded_edittext_background"
+                                android:gravity="center_vertical" />
+                        </LinearLayout>
+
+                        <!-- 경도 필드 -->
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:padding="5dp"
+                                android:text="경도"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/longitude"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
                             android:padding="12dp"
                             android:textColor="@color/black"
                             android:textSize="16sp"

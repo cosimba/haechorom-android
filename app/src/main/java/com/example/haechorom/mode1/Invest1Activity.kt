@@ -8,6 +8,7 @@ import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -56,20 +57,19 @@ class Invest1Activity : AppCompatActivity() {
         completionBtn = findViewById(R.id.completionBtn)
         cameraBtn = findViewById(R.id.camera)
         galleryBtn = findViewById(R.id.picture)
-        latitudeTextView = findViewById(R.id.latitude) // 위도 TextView
-        longitudeTextView = findViewById(R.id.longitude) // 경도 TextView
+        latitudeTextView = findViewById(R.id.latitude)
+        longitudeTextView = findViewById(R.id.longitude)
 
         // Mode1Activity에서 위도와 경도를 받아옴
         latitude = intent.getDoubleExtra("latitude", 0.0)
         longitude = intent.getDoubleExtra("longitude", 0.0)
 
+        // 받아온 값이 제대로 설정되었는지 로그로 확인
+        Log.d("Invest1Activity", "받아온 위도: $latitude, 경도: $longitude")
+
         // 위도와 경도 값을 TextView에 표시
         latitudeTextView.text = latitude.toString()
         longitudeTextView.text = longitude.toString()
-
-        // 카메라와 갤러리 이벤트 처리
-        cameraBtn.setOnClickListener { openCamera() }
-        galleryBtn.setOnClickListener { openGallery() }
 
         // 조사 완료 버튼 이벤트 처리
         completionBtn.setOnClickListener {
