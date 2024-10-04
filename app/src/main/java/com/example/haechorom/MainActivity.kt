@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+
 //        var keyHash = Utility.getKeyHash(this)
 //        Log.d("키 해시 값", keyHash)
 
@@ -95,28 +96,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 })
         }
-
-//        binding.buttonLogin.setOnClickListener {
-//            val id = binding.editTextId.text.toString()
-//            val password = binding.editTextPassword.text.toString()
-//            val mode = binding.modeSpinner.selectedItemPosition + 1 // 모드 2~5 선택
-//
-//            if (id.isEmpty() || password.isEmpty()) {
-//                Toast.makeText(this, "아이디와 비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show()
-//            } else if (id == tempId && password == tempPassword) {
-//                val intent: Intent = when (mode) {
-//                    2 -> Intent(this, Mode1Activity::class.java)
-//                    3 -> Intent(this, Mode2Activity::class.java)
-//                    4 -> Intent(this, Mode3Activity::class.java)
-//                    5 -> Intent(this, Mode4Activity::class.java)
-//                    else -> Intent(this, MainActivity::class.java)
-//                }
-//                startActivity(intent)
-//                finish()
-//            } else {
-//                Toast.makeText(this, "잘못된 아이디 또는 비밀번호입니다.", Toast.LENGTH_SHORT).show()
-//            }
-//        }
 
         // 회원 가입 화면 이동
         binding.textView.setOnClickListener {
