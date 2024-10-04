@@ -30,13 +30,10 @@ import com.kakao.vectormap.label.LabelStyles
 
 class Mode1Activity : AppCompatActivity() {
 
-    private lateinit var mapView: MapView
-    private var kakaoMap: KakaoMap? = null
+    // 바인딩 객체 생성
     private lateinit var binding: ActivityMode1Binding
+    private var kakaoMap: KakaoMap? = null
     private var locationLabel: Label? = null  // 내 위치를 나타내는 라벨
-
-    // 위도와 경도를 표시할 TextView 추가
-    private lateinit var latLngTextView: TextView
 
     // 클릭한 위치의 위도와 경도
     private var clickedLatitude: Double = 0.0
@@ -44,15 +41,8 @@ class Mode1Activity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mode1)
 
-        // TextView 초기화
-        latLngTextView = findViewById(R.id.lat_lng_text)
-
-        // MapView 초기화
-        mapView = findViewById(R.id.map_view)
-
-        // ViewBinding 초기화
+        // 바인딩 설정
         binding = ActivityMode1Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -70,7 +60,6 @@ class Mode1Activity : AppCompatActivity() {
         // KakaoMapReadyCallback 설정
         binding.mapView.start(object : KakaoMapReadyCallback() {
             override fun onMapReady(kakaoMap: KakaoMap) {
-                // KakaoMap 객체 저장
                 this@Mode1Activity.kakaoMap = kakaoMap
 
                 // 내 위치를 기반으로 카메라를 이동시킴
@@ -154,11 +143,13 @@ class Mode1Activity : AppCompatActivity() {
         }
     }
 
-    // 위도 경도를 TextView에 업데이트하는 함수
     @SuppressLint("SetTextI18n")
     private fun updateLatLngTextView(location: LatLng) {
         Log.d("LatLngUpdate", "TextView에 출력 - 위도: ${location.latitude}, 경도: ${location.longitude}")
-        latLngTextView.text = "위도: ${location.latitude}, 경도: ${location.longitude}"
+        val formattedLatitude = String.format("%.4f", location.latitude)
+        val formattedLongitude = String.format("%.4f", location.longitude)
+        // 바인딩을 통해 TextView에 접근
+        binding.latLngText.text = "위도: $formattedLatitude\n경도: $formattedLongitude"
     }
 
     // 라벨을 내 위치에 추가하는 함수
@@ -185,8 +176,8 @@ class Mode1Activity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        mapView.resume() // 지도 라이프사이클 resume() 호출
-        mapView.start(object : MapLifeCycleCallback() {
+        binding.mapView.resume() // 지도 라이프사이클 resume() 호출
+        binding.mapView.start(object : MapLifeCycleCallback() {
             override fun onMapDestroy() {
                 Log.e(TAG, "onMapDestroy")
             }
@@ -208,17 +199,12 @@ class Mode1Activity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        mapView.pause() // 지도 라이프사이클 pause() 호출
+        binding.mapView.pause() // 지도 라이프사이클 pause() 호출
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        mapView.finish() // 명시적으로 지도 종료
-    }
-
-    // 뒤로가기를 눌렀을 때 앱 종료
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finishAffinity() // 모든 액티비티 종료 (앱 종료)
+        binding.mapView.finish() // 명시적으로 지도 종료
     }
 }
+
