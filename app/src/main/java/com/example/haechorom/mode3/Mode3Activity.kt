@@ -24,7 +24,6 @@ class Mode3Activity : AppCompatActivity() {
         }
     }
 
-
     // 뒤로가기를 눌렀을 때 앱 종료
     override fun onBackPressed() {
         super.onBackPressed()

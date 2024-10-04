@@ -57,7 +57,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:padding="5dp"
-                        android:text="위도"
+                        android:text="· 위도"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -86,7 +86,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:padding="5dp"
-                        android:text="경도"
+                        android:text="· 경도"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -125,7 +125,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:padding="5dp"
-                        android:text="해안명"
+                        android:text="· 해안명"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -154,7 +154,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:padding="5dp"
-                        android:text="해안 길이"
+                        android:text="· 해안 길이"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
@@ -193,7 +193,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="10dp"
                         android:padding="5dp"
-                        android:text="수거량"
+                        android:text="· 수거량"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="16sp" />
