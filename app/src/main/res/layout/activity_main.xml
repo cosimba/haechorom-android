@@ -35,7 +35,7 @@
             android:padding="12dp"
             android:background="@drawable/rounded_edittext_background"/>
 
-        <Spinner
+        <!--<Spinner
             android:id="@+id/modeSpinner"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -43,7 +43,7 @@
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
             android:background="@drawable/spinner_background"
-            android:entries="@array/modes_array" />
+            android:entries="@array/modes_array" />-->
 
         <Button
             android:id="@+id/buttonLogin"
