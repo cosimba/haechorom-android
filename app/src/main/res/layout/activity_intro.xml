@@ -35,7 +35,7 @@
                 android:layout_height="55dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/background_radius_blue"
-                android:text="로그인"
+                android:text="로그인 하러 가기"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 
@@ -45,7 +45,7 @@
                 android:layout_height="55dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/background_radius_blue"
-                android:text="회원가입"
+                android:text="회원가입 하러 가기"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
 

@@ -60,4 +60,3 @@ dependencies {
     implementation("com.kakao.sdk:v2-user:2.12.1") // 카카오 로그인 모듈 (keyHash 값 때문에 설정)
     implementation("com.kakao.maps.open:android:2.6.0") // 카카오 맵 API
 }
-
