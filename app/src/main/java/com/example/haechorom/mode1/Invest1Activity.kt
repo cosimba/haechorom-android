@@ -60,6 +60,17 @@ class Invest1Activity : AppCompatActivity() {
         latitudeTextView = findViewById(R.id.latitude)
         longitudeTextView = findViewById(R.id.longitude)
 
+
+        // 스피너에 커스텀 레이아웃 적용
+        ArrayAdapter.createFromResource(
+            this,
+            R.array.trash_array,
+            R.layout.custom_spinner_item // 커스텀 레이아웃 적용
+        ).also { adapter ->
+            adapter.setDropDownViewResource(R.layout.custom_spinner_item)
+            trashSpinner.adapter = adapter
+        }
+
         // Mode1Activity에서 위도와 경도를 받아옴
         latitude = intent.getDoubleExtra("latitude", 0.0)
         longitude = intent.getDoubleExtra("longitude", 0.0)
@@ -122,6 +133,7 @@ class Invest1Activity : AppCompatActivity() {
             Toast.makeText(this, "모든 필드를 채워주세요.", Toast.LENGTH_LONG).show()
             return
         }
+
 
         // 조사 데이터를 Mode1Activity로 전달하고 완료 처리
         val intent = Intent(this, Mode1Activity::class.java)

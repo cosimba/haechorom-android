@@ -3,8 +3,6 @@ package com.example.haechorom
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -14,13 +12,12 @@ import com.example.haechorom.mode1.Mode1Activity
 import com.example.haechorom.mode2.Mode2Activity
 import com.example.haechorom.mode3.Mode3Activity
 import com.example.haechorom.mode4.Mode4Activity
-import com.kakao.sdk.common.util.Utility
-import com.example.haechorom.auth.api.RetrofitClient
+import com.example.haechorom.api.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.example.haechorom.auth.api.LoginRequest
-import com.example.haechorom.auth.api.LoginResponse
+import com.example.haechorom.api.dto.request.LoginRequest
+import com.example.haechorom.api.dto.response.LoginResponse
 
 class MainActivity : AppCompatActivity() {
 

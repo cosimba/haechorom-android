@@ -1,4 +1,4 @@
-package com.example.haechorom.auth.api
+package com.example.haechorom.api.dto.response
 
 // 로그인 응답 으로 받을 데이터 클래스
 data class LoginResponse(

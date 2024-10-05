@@ -1,6 +1,5 @@
 package com.example.haechorom.auth
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
@@ -9,10 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.haechorom.R
-import com.example.haechorom.MainActivity
 import android.widget.Toast
-import com.example.haechorom.auth.api.RetrofitClient
-import com.example.haechorom.auth.api.User
+import com.example.haechorom.api.RetrofitClient
+import com.example.haechorom.api.entity.User
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
@@ -97,15 +95,6 @@ class JoinActivity : AppCompatActivity() {
 
             // User 객체 생성
             val user = User(userId, password, name, email, phone, pin, role)
-
-//            // 서버와 연결 전이므로 입력된 데이터를 사용하지 않고 바로 MainActivity로 이동
-//            val intent = Intent(this@JoinActivity, MainActivity::class.java)
-//            intent.putExtra("name", name)
-//            intent.putExtra("phone", phone)
-//            intent.putExtra("email", email)
-//            intent.putExtra("userId", userId)
-//            intent.putExtra("mode", modeSpinner.selectedItem.toString()) // 선택된 모드를 전달
-//            startActivity(intent)
 
             // 테스트
             val gson = Gson()
