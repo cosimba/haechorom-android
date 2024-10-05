@@ -29,9 +29,6 @@
         android:usesCleartextTraffic="true"
         tools:ignore="MissingClass">
         <activity
-            android:name=".mode2.Menu2Activity"
-            android:exported="false" />
-        <activity
             android:name=".mode3.Menu3Activity"
             android:exported="false" />
         <activity
@@ -74,6 +71,9 @@
         <meta-data
             android:name="com.kakao.vectormap.APP_KEY"
             android:value="@string/kakao_api_key" />
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_rest_api_key" />
     </application>
 
 </manifest>
