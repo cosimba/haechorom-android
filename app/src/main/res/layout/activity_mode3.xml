@@ -215,7 +215,7 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/search_button"
+                    android:id="@+id/button"
                     android:text="조회하기"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -230,24 +230,23 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="7dp"
                     android:padding="5dp"
-                    android:text="조회 공간 범위"
+                    android:text="해안 별 누적 쓰레기 양"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:layout_marginTop="15dp"
                     android:gravity="center_horizontal">
 
-                    <ImageView
-                        android:layout_width="300dp"
-                        android:layout_height="200dp"
-                        android:layout_margin="5dp"
-                        tools:srcCompat="@tools:sample/avatars"
-                        android:id="@+id/avatars_1" />
+                    <WebView
+                        android:id="@+id/webView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -285,24 +284,23 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="7dp"
                     android:padding="5dp"
-                    android:text="수거량 지도"
+                    android:text="해안 별 평균 쓰레기 양"
                     android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:layout_marginTop="15dp"
                     android:gravity="center_horizontal">
 
-                    <ImageView
-                        android:layout_width="300dp"
-                        android:layout_height="200dp"
-                        android:layout_margin="5dp"
-                        tools:srcCompat="@tools:sample/avatars"
-                        android:id="@+id/avatars_2" />
+                    <WebView
+                        android:id="@+id/webView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
