@@ -2,6 +2,7 @@ package com.example.haechorom.api
 
 import com.example.haechorom.api.dto.request.LoginRequest
 import com.example.haechorom.api.dto.response.CleanPostResponse
+import com.example.haechorom.api.dto.response.CollectPostResponse
 import com.example.haechorom.api.dto.response.JosaPostResponse
 import com.example.haechorom.api.dto.response.LoginResponse
 import com.example.haechorom.api.entity.User
@@ -31,4 +32,7 @@ interface ApiService {
     @GET("/clean/api/v1/view/cleanyet")
     fun getAllCleanRecords(): Call<List<CleanPostResponse>>
 
+    // 청소가 끝난 청소 모드 조회 API => 운전자 모드에 사용
+    @GET("/clean/api/v1/view/cleanfin")
+    fun getCleanFinished(): Call<List<CollectPostResponse>>
 }

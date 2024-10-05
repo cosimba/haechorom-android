@@ -16,15 +16,15 @@
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
 
-            <TextView
-                android:id="@+id/lat_lng_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:gravity="center"
-                android:text="위도\n 경도"
-                android:textAlignment="center"
-                android:textSize="16sp" />
+<!--            <TextView-->
+<!--                android:id="@+id/lat_lng_text"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="16dp"-->
+<!--                android:gravity="center"-->
+<!--                android:text="위도\n 경도"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textSize="16sp" />-->
 
             <com.kakao.vectormap.MapView
                 android:id="@+id/map_view"
