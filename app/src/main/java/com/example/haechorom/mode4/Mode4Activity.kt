@@ -3,6 +3,7 @@ package com.example.haechorom.mode4
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -14,6 +15,7 @@ import com.kakao.vectormap.camera.CameraPosition
 import com.kakao.vectormap.camera.CameraUpdateFactory
 import com.example.haechorom.databinding.ActivityMode4Binding
 import com.kakao.vectormap.label.Label
+import com.kakao.vectormap.label.LabelLayer
 import com.kakao.vectormap.label.LabelOptions
 import com.kakao.vectormap.label.LabelStyle
 import com.kakao.vectormap.label.LabelStyles
@@ -23,7 +25,11 @@ class Mode4Activity : AppCompatActivity() {
     // 바인딩 객체 생성
     private lateinit var binding: ActivityMode4Binding
     private var kakaoMap: KakaoMap? = null
-    private var locationLabel: Label? = null  // 내 위치를 나타내는 라벨
+    private val pinLabels = mutableMapOf<LatLng, Label>() // 각 핀을 관리할 Map
+
+    // 초록 핀들의 위치를 저장할 리스트
+    private val greenPinLocations = mutableListOf<LatLng>()
+
 
     // 고정할 위도와 경도 값 (내 위치 임시 설정)
     private val fixedLatitude = 35.1678916
@@ -47,9 +53,12 @@ class Mode4Activity : AppCompatActivity() {
                 // 초기 위치를 고정된 위도와 경도로 설정
                 moveToFixedLocation(kakaoMap)
 
-                // * 추가적인 핀 찍기 예시
-                addPinToLocation(kakaoMap, 35.168000, 129.130000) // 예시 위치
-                addPinToLocation(kakaoMap, 35.165000, 129.133000) // 또 다른 예시 위치
+                // 파란 핀 추가
+                addPinToLocation(kakaoMap, 35.168000, 129.130000) // 예시 위치 1
+                addPinToLocation(kakaoMap, 35.165000, 129.133000) // 예시 위치 2
+
+                // 클릭 이벤트 설정
+                setLabelClickListener(kakaoMap)
             }
         })
     }
@@ -61,14 +70,6 @@ class Mode4Activity : AppCompatActivity() {
         } else {
             // 권한이 이미 허용된 경우 즉시 위치를 요청
             kakaoMap?.let { moveToFixedLocation(it) }
-        }
-    }
-
-    // 권한 요청 결과 처리
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1000 && grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            kakaoMap?.let { moveToFixedLocation(it) } // 권한 승인 시 고정 위치로 이동
         }
     }
 
@@ -84,50 +85,55 @@ class Mode4Activity : AppCompatActivity() {
             0.0 // 높이
         )
         kakaoMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
-
-        // 고정된 위치에 라벨을 추가
-        addLabelToLocation(kakaoMap, myLocation)
     }
 
-    // 라벨을 고정된 위치에 추가하는 함수
-    private fun addLabelToLocation(kakaoMap: KakaoMap, location: LatLng) {
-        // 기존에 라벨이 있으면 제거
-        locationLabel?.remove()
-
-        // LabelStyles 설정 - 단순한 아이콘 스타일을 적용
-        val styles = LabelStyles.from(LabelStyle.from(R.drawable.my_location_icon))  // my_location_icon: 위치 아이콘 리소스
-
-        // 새로운 라벨 생성
-        val labelOptions = LabelOptions.from(location)
-            .setStyles(styles)  // 라벨 스타일 설정
-
-        // LabelLayer에서 레이어 가져오기
-        val labelLayer = kakaoMap.getLabelManager()?.getLayer()
-
-        // 라벨 추가
-        val label = labelLayer?.addLabel(labelOptions)
-
-        // 새 라벨을 저장
-        locationLabel = label
-    }
-
-    // 특정 위도와 경도로 핀 추가하는 함수
+    // 특정 위도와 경도로 파란 핀 추가하는 함수
     private fun addPinToLocation(kakaoMap: KakaoMap, latitude: Double, longitude: Double) {
         val location = LatLng.from(latitude, longitude)
-
-        // LabelStyles 설정 - 단순한 아이콘 스타일을 적용
-        val styles = LabelStyles.from(LabelStyle.from(R.drawable.blue_pin))  // pin_icon: 핀 아이콘 리소스
-
-        // 새로운 라벨 생성
-        val labelOptions = LabelOptions.from(location)
-            .setStyles(styles)  // 라벨 스타일 설정
-
-        // LabelLayer에서 레이어 가져오기
+        val bluePinStyle = LabelStyles.from(LabelStyle.from(R.drawable.blue_pin)) // 파란 핀 스타일
+        val labelOptions = LabelOptions.from(location).setStyles(bluePinStyle)
         val labelLayer = kakaoMap.getLabelManager()?.getLayer()
+        val pinLabel = labelLayer?.addLabel(labelOptions)
 
-        // 라벨 추가
-        labelLayer?.addLabel(labelOptions)
+        // 추가한 파란 핀을 저장
+        pinLabel?.let {
+            pinLabels[location] = it // 위치와 라벨을 매핑해 저장
+        }
     }
+
+    // 라벨 클릭 리스너 설정
+    private fun setLabelClickListener(kakaoMap: KakaoMap) {
+        kakaoMap.setOnLabelClickListener(object : KakaoMap.OnLabelClickListener {
+            override fun onLabelClicked(kakaoMap: KakaoMap, layer: LabelLayer, label: Label) {
+                // 클릭된 라벨의 위치를 저장된 값에서 찾음
+                val labelLocation = pinLabels.entries.firstOrNull { it.value == label }?.key
+
+                labelLocation?.let {
+                    // 기존 라벨 삭제
+                    pinLabels[labelLocation]?.remove()
+
+                    // 초록 핀 스타일로 새로운 라벨 추가
+                    val greenPinStyle = LabelStyles.from(LabelStyle.from(R.drawable.green_pin)) // 초록 핀 스타일
+                    val labelOptions = LabelOptions.from(it).setStyles(greenPinStyle)
+                    val labelLayer = kakaoMap.getLabelManager()?.getLayer()
+
+                    // 새로 추가된 초록 핀 저장
+                    val newLabel: Label? = labelLayer?.addLabel(labelOptions)
+
+                    if (newLabel != null) {
+                        pinLabels[labelLocation] = newLabel
+                        Toast.makeText(this@Mode4Activity, "파란 핀이 초록 핀으로 바뀌었습니다!", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this@Mode4Activity, "핀 추가에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                    }
+
+                    Toast.makeText(this@Mode4Activity, "파란 핀이 초록 핀으로 바뀌었습니다!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+    }
+
+
 
     override fun onResume() {
         super.onResume()
