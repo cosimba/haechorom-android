@@ -1,4 +1,4 @@
-package com.example.haechorom.auth.api
+package com.example.haechorom.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

@@ -1,4 +1,4 @@
-package com.example.haechorom.auth.api
+package com.example.haechorom.api.entity
 
 data class User(
     val userId: String,
