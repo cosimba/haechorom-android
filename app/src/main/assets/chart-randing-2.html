@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Maps API</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-_YR-nWP2fohCe-85-eyu2PgvPI-Bpw4"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        function initMap(startYear, startMonth, startDay, endYear, endMonth, endDay) {
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 11,
+                center: {lat: 35.29330795288086, lng: 129.45848266601562} // 초기 중심점
+            });
+
+            // POST 요청할 데이터
+            var requestData = {
+                start: {
+                    year: startYear,
+                    month: startMonth,
+                    day: startDay
+                },
+                end: {
+                    year: endYear,
+                    month: endMonth,
+                    day: endDay
+                }
+            };
+            // AJAX POST 요청
+            fetch('http://34.47.71.166:8082/es/api/v1/aggregate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                // 받아온 데이터로 locations 배열 채우기
+                var locations = data.map(item => ({
+                    lat: item.lat,
+                    lng: item.lng,
+                    averageVal: item.averageVal
+                }));
+
+                // 모든 원의 반지름을 동일하게 설정
+                var fixedRadius = 500; // 500미터로 설정
+
+                // 원 그리기
+                locations.forEach(function(location) {
+                    var circle = new google.maps.Circle({
+                        strokeColor: getColor(location.averageVal), // averageVal에 따른 색상
+                        strokeOpacity: 0.8,
+                        strokeWeight: 2,
+                        fillColor: getColor(location.averageVal),
+                        fillOpacity: 0.35,
+                        map: map,
+                        center: {lat: location.lat, lng: location.lng},
+                        radius: fixedRadius // 고정된 반지름 사용
+                    });
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+        }
+
+        // averageVal에 따른 색상 결정 함수
+        function getColor(averageVal) {
+            if (averageVal > 400) {
+                return '#FF0000'; // 빨간색 (많이 수거된 경우)
+            } else if (averageVal > 200) {
+                return '#FFA500'; // 오렌지색
+            } else {
+                return '#00FF00'; // 초록색 (적게 수거된 경우)
+            }
+        }
+
+        function captureChart() {
+            // html2canvas를 사용하여 document.body를 캡처
+            const mapElement = document.getElementById('map'); // 캡처할 요소 선택
+            html2canvas(mapElement, {
+                useCORS: true
+            }).then(function(canvas) {
+                const dataURL = canvas.toDataURL('image/png');
+                // Android에 이미지 데이터 전송
+                saveToGallery(dataURL);
+            }).catch(function(error) {
+                console.error('Error capturing the chart:', error);
+            });
+        }
+
+        function saveToGallery(dataURL) {
+            // 데이터 URL을 Blob으로 변환
+            fetch(dataURL)
+                .then(res => res.blob())
+                .then(blob => {
+                    const file = new File([blob], 'chart2.png', { type: 'image/png' });
+
+                    const reader = new FileReader();
+                    reader.onloadend = function() {
+                        // Android에 파일을 저장하는 메소드 호출
+                        Android.receiveChartImage(reader.result);  // 함수 이름 변경
+                    };
+                    reader.readAsDataURL(file);
+                });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+<div id="map" style="width: 900px; height: 500px;"></div>
+</body>
+</html>
