@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 // Retrofit instance 생성
 object RetrofitClient {
 
-    private const val BASE_URL = "http://34.64.251.9:8080" // 여기에 서버 주소를 적습니다.
+    private const val BASE_URL = "http://34.47.71.166:8080" // 여기에 서버 주소를 적습니다.
 
     private val retrofit by lazy {
         Retrofit.Builder()

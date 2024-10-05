@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-feature
         android:name="android.hardware.camera"
-        android:required="false" />
-
-    <!-- 인터넷 연결 허용 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-
-    <!-- GPS 위치 연결 허용 -->
+        android:required="false" /> <!-- 인터넷 연결 허용 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- GPS 위치 연결 허용 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <!-- 카메라 및 사진 연결 허용 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 카메라 및 사진 연결 허용 -->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
@@ -33,6 +28,12 @@
         android:theme="@style/Theme.HaeChorom"
         android:usesCleartextTraffic="true"
         tools:ignore="MissingClass">
+        <activity
+            android:name=".mode2.Menu2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".mode3.Menu3Activity"
+            android:exported="false" />
         <activity
             android:name=".mode2.Clean2Activity"
             android:exported="false" />
