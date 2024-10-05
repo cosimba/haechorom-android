@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.os.Environment
@@ -134,6 +136,10 @@ class Mode3Activity : AppCompatActivity() {
             val fos: OutputStream?
 
             try {
+                val bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.size)
+
+                val croppedBitmap = cropImage(bitmap, 100, 100, 900, 1400)
+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     // Android 10 이상: MediaStore를 사용하여 이미지 저장
                     val contentValues = ContentValues().apply {
@@ -152,7 +158,7 @@ class Mode3Activity : AppCompatActivity() {
                 }
 
                 fos?.use {
-                    it.write(imageBytes)
+                    croppedBitmap.compress(Bitmap.CompressFormat.PNG, 100, it)
                     Toast.makeText(context, "이미지가 갤러리에 저장되었습니다.", Toast.LENGTH_SHORT).show()
                 }
 
@@ -162,8 +168,9 @@ class Mode3Activity : AppCompatActivity() {
         }
     }
 
-
-
+    private fun cropImage(bitmap: Bitmap, x: Int, y: Int, width: Int, height: Int): Bitmap {
+        return Bitmap.createBitmap(bitmap, x, y, width, height)
+    }
 
     // 자동 필드 이동 설정 함수
     private fun setupAutoMove(currentField: EditText, nextField: EditText?, limit: Int) {
