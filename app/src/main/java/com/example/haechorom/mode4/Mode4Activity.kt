@@ -14,8 +14,6 @@ import com.kakao.vectormap.LatLng
 import com.kakao.vectormap.camera.CameraPosition
 import com.kakao.vectormap.camera.CameraUpdateFactory
 import com.example.haechorom.databinding.ActivityMode4Binding
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.MarkerOptions
 import com.kakao.vectormap.label.Label
 import com.kakao.vectormap.label.LabelLayer
 import com.kakao.vectormap.label.LabelOptions
@@ -113,8 +111,6 @@ class Mode4Activity : AppCompatActivity() {
         kakaoMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition))
     }
 
-
-
     // 특정 위도와 경도로 파란 핀 추가하는 함수
     private fun addPinToLocation(kakaoMap: KakaoMap, latitude: Double, longitude: Double) {
         val location = LatLng.from(latitude, longitude)
@@ -158,8 +154,9 @@ class Mode4Activity : AppCompatActivity() {
     private fun connectGreenPins(kakaoMap: KakaoMap) {
         if (greenPinLocations.size > 0) {  // 최소 하나의 초록 핀이 필요함
             // 라인 스타일 설정
-            val stylesSet = RouteLineStylesSet.from("greenStyle",
-                RouteLineStyles.from(RouteLineStyle.from(12f, 0xFF00FF00.toInt()))) // 두께 5f, 초록색 설정
+            val stylesSet = RouteLineStylesSet.from("blueStyle",
+                RouteLineStyles.from(RouteLineStyle.from(20f, 0xFF3E8EDE
+                    .toInt()))) // 두께 5f, 초록색 설정
 
             // 시작 지점을 my_location_icon으로 설정
             val myLocation = LatLng.from(fixedLatitude, fixedLongitude)
@@ -183,7 +180,6 @@ class Mode4Activity : AppCompatActivity() {
             Toast.makeText(this, "적어도 하나 이상의 초록 핀이 필요합니다.", Toast.LENGTH_SHORT).show()
         }
     }
-
 
     override fun onResume() {
         super.onResume()
