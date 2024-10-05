@@ -14,10 +14,10 @@
         android:background="@drawable/modal">
 
         <TextView
-            android:id="@+id/josa_name"
+            android:id="@+id/clean_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="조사자"
+            android:text="청소자"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
@@ -26,10 +26,10 @@
             android:layout_marginBottom="16dp"/>
 
         <TextView
-            android:id="@+id/josa_date"
+            android:id="@+id/clean_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="조사일"
+            android:text="청소일"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/gray"
@@ -59,7 +59,7 @@
             android:id="@+id/collectBag"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="예측량"
+            android:text="수거량"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/gray"
