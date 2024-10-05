@@ -1,0 +1,88 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/gray">
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/background_radius_rounded">
+
+        <TextView
+            android:id="@+id/josa_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="조사자"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/josa_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="조사일"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/coastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="해안명"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/coastLength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="해안 길이"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/collectBag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예측량"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/trashType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="쓰레기종류"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:text="닫기"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:background="@color/TuftsBlue" />
+    </LinearLayout>
+
+</LinearLayout>

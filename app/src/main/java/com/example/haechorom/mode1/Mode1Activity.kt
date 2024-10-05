@@ -2,7 +2,6 @@ package com.example.haechorom.mode1
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
@@ -21,7 +20,6 @@ import com.kakao.vectormap.camera.CameraUpdateFactory
 import android.location.LocationManager
 import android.content.Context
 import android.widget.Toast
-import com.example.haechorom.CustomDialogFragment
 import com.example.haechorom.api.RetrofitClient
 import com.example.haechorom.api.dto.response.JosaPostResponse
 import com.kakao.vectormap.label.Label
@@ -139,7 +137,7 @@ class Mode1Activity : AppCompatActivity() {
 
     // 모달 창을 띄우는 함수
     private fun showModal(josa: JosaPostResponse) {
-        val dialog = CustomDialogFragment.newInstance(josa)
+        val dialog = CustomJosaDialogFragment.newInstance(josa)
         dialog.show(supportFragmentManager, "JosaModal")
         Log.d("모달 확인", "모달을 띄웁니다: ${josa.josaName}") // 테스트
     }
