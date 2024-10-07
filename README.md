@@ -2,11 +2,18 @@
 
 ## DIVE 2024 Hackathon
 
-This project was developed during the **DIVE 2024 Hackathon**, a 3-day non-stop event held from **October 4 to October 6, 2024**. 
+이번 해커톤의 주제는 **바다환경지킴이 빅데이터 구축용 스마트 수거앱 개발**이었습니다. 이 프로젝트는 바다환경지킴이들이 해양쓰레기를 수거하는 과정에서 데이터를 수집하고, 이를 기반으로 효율적인 수거 경로를 계획하며, 수거된 쓰레기의 종류와 양을 관리할 수 있는 시스템을 만드는 것을 목표로 했습니다.
+<br>
 
-Participants collaborated intensively to build innovative solutions, and this project is the result of our team's hard work during the hackathon.
+#### 해커톤에서 개발한 애플리케이션은 사용자의 로그인 정보에 따라 다른 모드를 제공하며, 각각의 모드에서 다양한 기능을 제공합니다:
 
-The event was focused on solving real-world problems with cutting-edge technology, and we utilized **Android Studio**, **Retrofit**, and **Kakao Map API** to deliver a map-based solution with server integration.
+- **조사 모드**: 현장에서 사진을 촬영하고, 쓰레기의 종류와 예측 수거량을 기록합니다.
+- **청소 모드**: 실제로 수거된 쓰레기 양을 기록하고 사진을 업로드합니다.
+- **관리자 모드**: 수거된 쓰레기 데이터를 기반으로 시각화하고, 분석 및 다운로드 기능을 제공합니다.
+- **수거차량 운전자 모드**: 수거된 쓰레기 양과 이동 경로를 시각화하며, 예상 경로를 수정하고 완료 상태를 기록할 수 있습니다.
+<br>
+
+이 앱은 GPS를 활용해 쓰레기 수거 위치를 기록하고, REST API를 통해 데이터를 서버로 전송하여 빅데이터 구축에 기여하는 방식으로 설계되었습니다
 
 ---
 
@@ -21,18 +28,18 @@ The event was focused on solving real-world problems with cutting-edge technolog
 ---
 
 ## Features
-This Android application integrates with external APIs to provide map-based functionality and server communication.
+이 안드로이드 애플리케이션은 외부 API와의 통합을 통해 지도 기반 기능 및 서버 통신을 제공합니다.
 
-### 1. **Retrofit Integration**
-   - **Retrofit** was used to establish server connections for this project. It simplifies HTTP communication and makes it easier to manage RESTful APIs.
+### 1. **Retrofit 통합**
+   - 이 프로젝트에서 **Retrofit**을 사용하여 서버와의 연결을 설정했습니다. 이 도구는 HTTP 통신을 단순화하고 RESTful API 관리를 용이하게 해줍니다.
 
-### 2. **Kakao Map API**
-   - **Kakao Map** was implemented to display interactive maps within the app.
-   - Key hash registration was required for the API, and the **native key** was used to initialize and display the map.
-   - The application also used **REST API** to place pins on the map, linking them along terrain and road paths.
+### 2. **카카오 지도 API**
+   - **카카오 지도**를 활용하여 앱 내에서 인터랙티브한 지도를 표시했습니다.
+   - API 사용을 위해 키 해시 등록이 필요했으며, **네이티브 키**를 사용하여 지도를 초기화하고 표시했습니다.
+   - 또한 **REST API**를 사용하여 지도 위에 핀을 표시하고, 이를 지형과 도로 경로에 연결하는 기능을 구현했습니다.
 
-### 3. **Map Features**
-   - The map includes custom markers and polyline paths that follow specific roads and terrain, providing a seamless user experience.
+### 3. **지도 기능**
+   - 이 지도는 사용자가 지정한 도로와 지형을 따라 맞춤형 마커와 폴리라인 경로를 제공하여 매끄러운 사용자 경험을 제공합니다.
 <br>
 
 ## Dependencies
@@ -53,7 +60,7 @@ Below are the key dependencies used in this project:
 
 ## Android Manifest Permissions
 
-The following permissions and features are defined in the `AndroidManifest.xml` to support various functionalities such as internet access, GPS location, camera usage, and external storage:
+이 애플리케이션은 인터넷 연결, GPS 위치 서비스, 카메라 사용, 외부 저장소 접근 등 다양한 기능을 지원하기 위해 `AndroidManifest.xml` 파일에 다음과 같은 권한 및 기능을 정의했습니다:
 
 ```xml
 <uses-feature
@@ -78,3 +85,12 @@ The following permissions and features are defined in the `AndroidManifest.xml` 
 <uses-permission
     android:name="android.permission.READ_EXTERNAL_STORAGE"
     android:maxSdkVersion="32" />
+```
+
+---
+
+이 프로젝트는 **DIVE 2024 해커톤** 동안 개발되었습니다. 이 대회는 **2024년 10월 4일부터 10월 6일까지** 3일 동안 무박으로 진행된 이벤트입니다.
+
+저희 3인의 참가자들은 혁신적인 솔루션을 만들기 위해 집중적으로 협력했으며, 이 프로젝트는 해커톤 동안 COSIMBA팀의 노력의 결과물입니다.
+
+이 대회는 최첨단 기술을 사용하여 실제 문제를 해결하는 것에 중점을 두었으며, 우리는 **Android Studio**, **Retrofit**, **Kakao Map API**를 활용하여 서버 통합이 가능한 지도 기반 솔루션을 개발하였습니다.
