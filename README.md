@@ -42,6 +42,8 @@
    - 이 지도는 사용자가 지정한 도로와 지형을 따라 맞춤형 마커와 폴리라인 경로를 제공하여 매끄러운 사용자 경험을 제공합니다.
 <br>
 
+---
+
 ## Dependencies
 Below are the key dependencies used in this project:
 ```groovy
