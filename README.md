@@ -1,5 +1,15 @@
 # 해초롬 Android Systems
 
+## DIVE 2024 Hackathon
+
+This project was developed during the **DIVE 2024 Hackathon**, a 3-day non-stop event held from **October 4 to October 6, 2024**. 
+
+Participants collaborated intensively to build innovative solutions, and this project is the result of our team's hard work during the hackathon.
+
+The event was focused on solving real-world problems with cutting-edge technology, and we utilized **Android Studio**, **Retrofit**, and **Kakao Map API** to deliver a map-based solution with server integration.
+
+---
+
 ## Development Environment
 - **Language** :  Kotlin
 - **IDE** :  Android Studio
