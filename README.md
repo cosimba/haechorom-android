@@ -96,3 +96,10 @@ Below are the key dependencies used in this project:
 저희 3인의 참가자들은 혁신적인 솔루션을 만들기 위해 집중적으로 협력했으며, 이 프로젝트는 해커톤 기간 동안 COSIMBA팀의 노력의 결과물입니다.
 
 이 대회는 최첨단 기술을 사용하여 실제 문제를 해결하는 것에 중점을 두었으며, 우리는 **Android Studio**, **Retrofit**, **Kakao Map API**를 활용하여 서버 통합이 가능한 지도 기반 솔루션을 개발하였습니다.
+
+---
+
+### Team
+|<img src="https://avatars.githubusercontent.com/u/136697128?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/102722507?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/58455389?v=4" width="150" height="150"/>|
+|:-:|:-:|:-:|
+|Kim Minsoo<br/>[@eksploiter](https://github.com/eksploiter)|Jeong Jihee<br/>[@dev-9hee](https://github.com/dev-9hee)|Shin Seungyong<br/>[@sso9594](https://github.com/sso9594)|
