@@ -99,7 +99,7 @@ Below are the key dependencies used in this project:
 
 ---
 
-### Team
+## Team
 |<img src="https://avatars.githubusercontent.com/u/136697128?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/102722507?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/58455389?v=4" width="150" height="150"/>|
 |:-:|:-:|:-:|
 |Kim Minsoo<br/>[@eksploiter](https://github.com/eksploiter)|Jeong Jihee<br/>[@dev-9hee](https://github.com/dev-9hee)|Shin Seungyong<br/>[@sso9594](https://github.com/sso9594)|
