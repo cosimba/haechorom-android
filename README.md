@@ -90,7 +90,7 @@ Below are the key dependencies used in this project:
 ```
 
 ---
-## The result
+## The results
 
 
 ---
