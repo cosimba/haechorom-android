@@ -91,12 +91,19 @@ Below are the key dependencies used in this project:
 
 ---
 
-## The results
-
+# The results
+## Android
+<br>
 <p align="center">
   <img src="https://github.com/user-attachments/assets/c8dad76c-a3fb-4158-8eba-8c2102a1b04a" width="30%" />
   <img src="https://github.com/user-attachments/assets/9cd981ae-c49d-4126-b66e-a837db0f7779" width="30%" />
   <img src="https://github.com/user-attachments/assets/dc809c16-f6d2-47f2-a8d3-1499df173418" width="30%" />
+</p>
+
+## Server
+<br>
+<p align="center">
+  <img width="920" alt="KakaoTalk_20241006_082825534" src="https://github.com/user-attachments/assets/c63c512a-fb5f-40d8-9bd4-d92d9d47c3da">
 </p>
 
 ---
