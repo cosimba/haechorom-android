@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
 //        var keyHash = Utility.getKeyHash(this)
-//        Log.d("키 해시 값", keyHash)
+//        Log.d("키 해시 값", keyHash) // 키 해시 값 확인 하는 방법 -> Run 이후 Logcat 확인
 
         super.onCreate(savedInstanceState)
 
