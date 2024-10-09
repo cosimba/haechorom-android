@@ -90,6 +90,10 @@ Below are the key dependencies used in this project:
 ```
 
 ---
+## The result
+
+
+---
 
 이 프로젝트는 **DIVE 2024 해커톤** 기간 동안 개발되었습니다. 이 대회는 **2024년 10월 4일부터 10월 6일까지** 3일 동안 무박으로 진행된 이벤트입니다.
 
