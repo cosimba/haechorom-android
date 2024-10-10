@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.haechorom.R
-import com.example.haechorom.api.RetrofitClient
 import com.example.haechorom.api.dto.response.CollectPostResponse
 import com.example.haechorom.databinding.ActivityMode4Binding
 import com.kakao.vectormap.KakaoMap
@@ -22,7 +21,6 @@ import com.kakao.vectormap.LatLng
 import com.kakao.vectormap.camera.CameraPosition
 import com.kakao.vectormap.camera.CameraUpdateFactory
 import com.kakao.vectormap.label.Label
-import com.kakao.vectormap.label.LabelLayer
 import com.kakao.vectormap.label.LabelOptions
 import com.kakao.vectormap.label.LabelStyle
 import com.kakao.vectormap.label.LabelStyles
@@ -40,7 +38,6 @@ class Mode4Activity : AppCompatActivity() {
     private val client = OkHttpClient()
     private lateinit var binding: ActivityMode4Binding
     private var kakaoMap: KakaoMap? = null
-    private var locationLabel: Label? = null
     private val pinLabels = mutableMapOf<LatLng, Label>()
 
     private val greenPinLocations = mutableListOf<LatLng>()
@@ -64,6 +61,7 @@ class Mode4Activity : AppCompatActivity() {
         binding.button.setOnClickListener { connectGreenPinsWithRoad() }
     }
 
+    // 벡스코 근처로 임의의 좌표 값을 설정
     private fun setupMap() {
         moveToCurrentLocation()
         addPinToLocation(35.168000, 129.130000)
@@ -96,11 +94,15 @@ class Mode4Activity : AppCompatActivity() {
         } ?: LatLng.from(35.1678916, 129.134145) // Default fallback location
     }
 
+    // * 현재 보이는 API 와 같은 주소, 권한과 관련된 부분은 현재 이용할 수 없게 돼있으며
+    // 전부 학습 목적으로 업로드 되어 있습니다. *
+
     private fun fetchRoadDirections(startLat: Double, startLng: Double, endLat: Double, endLng: Double) {
         val url = "https://apis-navi.kakaomobility.com/v1/directions?origin=$startLng,$startLat&destination=$endLng,$endLat"
         val request = Request.Builder()
             .url(url)
-            .addHeader("Authorization", "KakaoAK 96ddc95fc9943db0616e923c34a3fe65")
+            .addHeader("Authorization", "KakaoAK '여기에 REST API'")
+            // 지도에 건물, 도로, 지형 등을 고려한 경로 설정을 위함
             .build()
 
         client.newCall(request).enqueue(object : Callback {
@@ -255,6 +257,7 @@ class Mode4Activity : AppCompatActivity() {
         findViewById<TextView>(R.id.truck).text = "· 필요 차량 : $truckType 트럭"
     }
 
+    // 마대 자루의 총 무게에 따른 필요 톤수의 차량 - 좀 더 세밀하게 설정 필요
     private fun getTruckType(totalWeight: Int): String {
         return when {
             totalWeight <= 1000 -> "1톤"
