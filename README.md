@@ -1,6 +1,4 @@
 # 해초롬 Android Systems
-<img src="https://github.com/user-attachments/assets/bf4bb980-e185-4023-be33-ecacbf73865a" />
-<h2>
 
 ## DIVE 2024 Hackathon
 
