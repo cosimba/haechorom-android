@@ -71,6 +71,7 @@
         <meta-data
             android:name="com.kakao.vectormap.APP_KEY"
             android:value="@string/kakao_api_key" />
+        <!-- 이 부분 사용하기 위해서는 개발하는 각 노트북의 해시키가 필요하다. -->
     </application>
 
 </manifest>
