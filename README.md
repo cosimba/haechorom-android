@@ -103,7 +103,7 @@ Below are the key dependencies used in this project:
 ## · Server (Backend)
 <br>
 <p align="center">
-  <img width="920" alt="KakaoTalk_20241006_082825534" src="https://github.com/user-attachments/assets/c63c512a-fb5f-40d8-9bd4-d92d9d47c3da">
+  <img width="920" alt="" src="https://github.com/user-attachments/assets/c63c512a-fb5f-40d8-9bd4-d92d9d47c3da">
 </p>
 
 ---
