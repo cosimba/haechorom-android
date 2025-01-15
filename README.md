@@ -106,7 +106,7 @@ Below are the key dependencies used in this project:
 ## · Server (Backend)
 <br>
 <p align="center">
-  <img width="920" alt="" src="https://github.com/user-attachments/assets/615bed25-32df-45ca-8c02-b6d1d87df906">
+  <img width="920" alt="" src="https://github.com/user-attachments/assets/615bed25-32df-45ca-8c02-b6d1d87df906" width="80%">
 </p>
 
 ---
