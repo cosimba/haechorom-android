@@ -95,15 +95,18 @@ Below are the key dependencies used in this project:
 ## · Android (Frontend)
 <br>
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/-" width="30%" />
-  <img src="https://github.com/user-attachments/assets/-" width="30%" />
-  <img src="https://github.com/user-attachments/assets/-" width="30%" />
+  <img src="https://github.com/user-attachments/assets/bcf790a7-14db-4ed1-a196-95dcbe631fe9" width="15%" />
+  <img src="https://github.com/user-attachments/assets/127672a2-8d8a-401a-bc38-9f9505b66f78" width="15%" />
+  <img src="https://github.com/user-attachments/assets/e9be925e-3c9e-48b9-8778-c3a5254ab0a8" width="15%" />
+  <img src="https://github.com/user-attachments/assets/722466f1-16dd-4206-a2f7-5efa6d9fd39e" width="15%" />
+  <img src="https://github.com/user-attachments/assets/2c06b8ed-a06f-42b0-875f-c2bd1d38d1f4" width="15%" />
+  <img src="https://github.com/user-attachments/assets/dc4e734f-4d24-452a-b871-8dc4c8c25442" width="15%" />
 </p>
 
 ## · Server (Backend)
 <br>
 <p align="center">
-  <img width="920" alt="" src="https://github.com/user-attachments/assets/c63c512a-fb5f-40d8-9bd4-d92d9d47c3da">
+  <img width="920" alt="" src="https://github.com/user-attachments/assets/615bed25-32df-45ca-8c02-b6d1d87df906">
 </p>
 
 ---
