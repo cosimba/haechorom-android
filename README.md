@@ -92,7 +92,7 @@ Below are the key dependencies used in this project:
 ---
 
 # The results
-## · Android (Frontend)
+### · Android (Frontend)
 <h3>✸ 주요 기능 </h3>
 
 <table>
